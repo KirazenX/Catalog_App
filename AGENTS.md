@@ -15,6 +15,7 @@ This application is a Laravel application and its main Laravel ecosystems packag
 - laravel/prompts (PROMPTS) - v0
 - livewire/flux (FLUXUI_FREE) - v2
 - livewire/livewire (LIVEWIRE) - v4
+- livewire/volt (VOLT) - v1
 - laravel/boost (BOOST) - v2
 - laravel/mcp (MCP) - v0
 - laravel/pail (PAIL) - v1
@@ -22,6 +23,7 @@ This application is a Laravel application and its main Laravel ecosystems packag
 - laravel/sail (SAIL) - v1
 - pestphp/pest (PEST) - v4
 - phpunit/phpunit (PHPUNIT) - v12
+- tailwindcss (TAILWINDCSS) - v4
 
 ## Skills Activation
 
@@ -29,7 +31,9 @@ This project has domain-specific skills available. You MUST activate the relevan
 
 - `fluxui-development` — Develops UIs with Flux UI Free components. Activates when creating buttons, forms, modals, inputs, dropdowns, checkboxes, or UI components; replacing HTML form elements with Flux; working with flux: components; or when the user mentions Flux, component library, UI components, form fields, or asks about available Flux components.
 - `livewire-development` — Develops reactive Livewire 4 components. Activates when creating, updating, or modifying Livewire components; working with wire:model, wire:click, wire:loading, or any wire: directives; adding real-time updates, loading states, or reactivity; debugging component behavior; writing Livewire tests; or when the user mentions Livewire, component, counter, or reactive UI.
+- `volt-development` — Develops single-file Livewire components with Volt. Activates when creating Volt components, converting Livewire to Volt, working with @volt directive, functional or class-based Volt APIs; or when the user mentions Volt, single-file components, functional Livewire, or inline component logic in Blade files.
 - `pest-testing` — Tests applications using the Pest 4 PHP framework. Activates when writing tests, creating unit or feature tests, adding assertions, testing Livewire components, browser testing, debugging test failures, working with datasets or mocking; or when the user mentions test, spec, TDD, expects, assertion, coverage, or needs to verify functionality works.
+- `tailwindcss-development` — Styles applications using Tailwind CSS v4 utilities. Activates when adding styles, restyling components, working with gradients, spacing, layout, flex, grid, responsive design, dark mode, colors, typography, or borders; or when the user mentions CSS, styling, classes, Tailwind, restyle, hero section, cards, buttons, or any visual/UI changes.
 - `fortify-development` — Laravel Fortify headless authentication backend development. Activate when implementing authentication features including login, registration, password reset, email verification, two-factor authentication (2FA/TOTP), profile updates, headless auth, authentication scaffolding, or auth guards in Laravel applications.
 
 ## Conventions
@@ -240,6 +244,15 @@ protected function isAccessible(User $user, ?string $path = null): bool
 - State lives on the server; the UI reflects it. Validate and authorize in actions (they're like HTTP requests).
 - IMPORTANT: Activate `livewire-development` every time you're working with Livewire-related tasks.
 
+=== volt/core rules ===
+
+# Livewire Volt
+
+- Single-file Livewire components: PHP logic and Blade templates in one file.
+- Always check existing Volt components to determine functional vs class-based style.
+- IMPORTANT: Always use `search-docs` tool for version-specific Volt documentation and updated code examples.
+- IMPORTANT: Activate `volt-development` every time you're working with a Volt or single-file component-related task.
+
 === pint/core rules ===
 
 # Laravel Pint Code Formatter
@@ -256,6 +269,14 @@ protected function isAccessible(User $user, ?string $path = null): bool
 - Do NOT delete tests without approval.
 - CRITICAL: ALWAYS use `search-docs` tool for version-specific Pest documentation and updated code examples.
 - IMPORTANT: Activate `pest-testing` every time you're working with a Pest or testing-related task.
+
+=== tailwindcss/core rules ===
+
+# Tailwind CSS
+
+- Always use existing Tailwind conventions; check project patterns before adding new ones.
+- IMPORTANT: Always use `search-docs` tool for version-specific Tailwind CSS documentation and updated code examples. Never rely on training data.
+- IMPORTANT: Activate `tailwindcss-development` every time you're working with a Tailwind CSS or styling-related task.
 
 === laravel/fortify rules ===
 

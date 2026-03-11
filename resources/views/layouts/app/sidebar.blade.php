@@ -15,6 +15,14 @@
                     <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
                     </flux:sidebar.item>
+                    <flux:sidebar.item icon="layout-grid" :href="route('catalog')" :current="request()->routeIs('catalog')" wire:navigate>
+                        {{ __('Katalog Produk') }}
+                    </flux:sidebar.item>
+                    @if(auth()->user()?->is_admin)
+                    <flux:sidebar.item icon="cog" :href="route('admin.products')" :current="request()->routeIs('admin.*')" wire:navigate>
+                        {{ __('Admin Produk') }}
+                    </flux:sidebar.item>
+                    @endif
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 

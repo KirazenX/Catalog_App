@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 
-Route::view('/', 'welcome')->name('home');
+Route::view('/', 'pages.auth.login')->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');

@@ -10,12 +10,21 @@
                 <flux:heading size="xl">Manajemen Produk</flux:heading>
                 <flux:subheading>Kelola data produk katalog</flux:subheading>
             </div>
-            <flux:button wire:click="openCreate" variant="primary" icon="plus">
+            <flux:button
+                href="{{ route('admin.products.create') }}"
+                variant="primary"
+                icon="plus"
+                wire:navigate
+            >
                 Tambah Produk
             </flux:button>
         </div>
 
-        <x-action-message on="product-saved">Produk berhasil disimpan.</x-action-message>
+        @if(session('success'))
+            <flux:callout variant="success" icon="check-circle">
+                {{ session('success') }}
+            </flux:callout>
+        @endif
 
         {{-- Tabel --}}
         <div class="bg-white dark:bg-zinc-800 rounded-xl border border-zinc-200 dark:border-zinc-700 overflow-hidden">
@@ -79,14 +88,12 @@
             </div>
         </div>
 
-        {{-- Modal --}}
+        {{-- Modal Edit --}}
         @if($showModal)
             <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
                 <div class="bg-white dark:bg-zinc-800 rounded-2xl shadow-xl w-full max-w-lg border border-zinc-200 dark:border-zinc-700">
                     <div class="px-6 py-4 border-b border-zinc-200 dark:border-zinc-700">
-                        <flux:heading size="lg">
-                            {{ $isEditing ? 'Edit Produk' : 'Tambah Produk Baru' }}
-                        </flux:heading>
+                        <flux:heading size="lg">Edit Produk</flux:heading>
                     </div>
                     <div class="px-6 py-4 space-y-4">
                         <flux:input wire:model="name" label="Nama Produk" placeholder="Nama produk" required />
@@ -100,9 +107,7 @@
                         <div>
                             <flux:label>
                                 Foto Produk
-                                @if($isEditing)
-                                    <span class="text-zinc-400 font-normal text-xs">(kosongkan jika tidak ingin mengganti)</span>
-                                @endif
+                                <span class="text-zinc-400 font-normal text-xs">(kosongkan jika tidak ingin mengganti)</span>
                             </flux:label>
                             <input
                                 wire:model="image"
@@ -118,9 +123,7 @@
                     </div>
                     <div class="px-6 py-4 border-t border-zinc-200 dark:border-zinc-700 flex justify-end gap-3">
                         <flux:button wire:click="$set('showModal', false)" variant="filled">Batal</flux:button>
-                        <flux:button wire:click="save" variant="primary">
-                            {{ $isEditing ? 'Simpan Perubahan' : 'Tambah Produk' }}
-                        </flux:button>
+                        <flux:button wire:click="save" variant="primary">Simpan Perubahan</flux:button>
                     </div>
                 </div>
             </div>

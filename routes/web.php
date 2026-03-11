@@ -19,6 +19,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('admin/products', function () {
         return view('pages.admin.products');
     })->name('admin.products');
+
+    Route::get('admin/products/create', function () {
+        return view('pages.admin.create-product');
+    })->name('admin.products.create');
 });
 
 require __DIR__.'/settings.php';
